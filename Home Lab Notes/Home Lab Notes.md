@@ -1,8 +1,9 @@
 # Download Ubuntu
 https://ubuntu.com/download/desktop
 Select Ubuntu 24.04.4 LTS
+
+![](Pasted%20image%2020260321185108.png)
 Setup:
-![[Pasted image 20260321185108.png]]
 Storage: 20gb
 Memory: 4gb
 Processors: 2
