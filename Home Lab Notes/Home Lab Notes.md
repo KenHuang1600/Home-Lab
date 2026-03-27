@@ -9,7 +9,7 @@ Memory: 4gb
 Processors: 2
 Replicate physical network connection state ON
 # Windows Setup
-![[Pasted image 20260323135421.png]]
+![](Pasted%20image%2020260323135421.png)
 Storage: 40gb
 Memory: 2gb
 Processors: 2
