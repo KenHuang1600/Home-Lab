@@ -2,7 +2,7 @@
 https://ubuntu.com/download/desktop
 Select Ubuntu 24.04.4 LTS
 
-![](Pasted%20image%2020260321185108.png)
+![Setup](Pasted%20image%2020260321185108.png)
 Setup:
 Storage: 20gb
 Memory: 4gb
