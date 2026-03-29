@@ -4,4 +4,4 @@
 ## Ubuntu(Manager)
 
 # Diagram
-![](src\Home-Lab.drawio.png)
+![](src/Home-Lab.drawio.png)
