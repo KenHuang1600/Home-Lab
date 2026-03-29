@@ -1,2 +1,2 @@
 # Home-Lab
-SIEM Lab Documentation
+SIEM Lab Documentation using wazuh 
