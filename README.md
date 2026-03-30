@@ -21,6 +21,9 @@ Run `ipconfig` on Windows 10 command prompt
 Subnet/netmask for both machines is `255.255.255.0` hence they are in the same network.  
 
 ## Installing Wazuh
+### Install Wazuh Manager
+Wazuh monitoring has two parts Manager and Agent. The manager is used to analyse and produce alerts while the agent collects data(logs, file changes) and sends it to the manager. First step to installing Wazuh is installing the Manager which I did on Ubuntu machine:
+
 1. Install appropriate packages on ubuntu (if you havent)
 ```bash
 sudo apt update
@@ -41,7 +44,7 @@ Make sure `4.14` is set to latest version in my case it was 4.14.
 Below is the finished installation image containing username and password for wazuh dashboard login.
 ![finish](src/finish.png)
 
-### Resizing VM
+#### Resizing VM
 One issue I ran into when installing wazuh manager is that my VM did not have enough space. The first thing I did was to resize the VM. You can do this by:
 1. Shut down Ubuntu 
 2. Go to VM on vmware
@@ -63,4 +66,46 @@ sudo resize2fs /dev/sda2
 
 ![check](src/check.png)
 
+### Accessing Wazuh Dashboard
+1. Use `ifconfig` or any other network command to find your device IP address 
+2. Enter `https://<ipaddress>:443` where `<ipaddress>` is machine IP address
+3. Login with provide credentials
+4. ![dashbaord](src/dashboard.png)
 
+The ip entered should be the ubuntu machines IP address. To get the authentication key we will need to open the machine with Wazuh Manager.
+
+1. Open Terminal on Ubuntu
+2. Run the following command to add agents
+```bash
+sudo /var/ossec/bin/manage_agents
+```
+4. On menu enter `A` to choose adding agent
+
+### Install Wazuh Agent
+1. Download windows installer from Wazuh Website
+2. Open installer accept agreement then finish
+3. Open Wazuh agent can be done via search bar
+4. Enter any name for agent name and the windows machines IP address
+5. To extract a key enter `E` on menu
+6. Enter agent ID number
+7. Go back to Windows Machine to paste authentication key
+8. Save and restart agent by clicking on manage > restart
+
+# File Integrity Monitoring Setup
+File Integrity Monitoring aims to montior a specific directory for any file changes(edit, delete, add). First we need to make a directory to monitor and add it to our wazuh config file `ossec`:
+1. On file explorer of Windows machine add new directory for testing my new directory is `C:\Users\kenny\Downloads\Wazuh-Test`
+2. Go back to the config file and scroll till you see this (should be below file integrity monitoring and 32-bit programs)
+
+![location](src/location.png)
+
+3. Below that add another directory line and replace the directory with the newly created directory
+
+Activity on new directory can be viewed on wazuh dashboard via `WINDOWS-AGENT` > File inetgrity monitoring. From image below you can see that I have added a file called `test-1.txt`.
+
+![add](src/add-file.png)
+
+# Upcoming work
+The future of this project will involve simulating attacks and detecting them with wazuh.
+- RDP Brute force detection
+- Adding a Ubuntu agent
+- Create web server
