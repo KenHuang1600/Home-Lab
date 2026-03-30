@@ -7,3 +7,60 @@ The purpose of this project is to develop hands-on experience in deploying a SIE
 - Understanding Wazuh platform basic features
 - Monitoring file integrity of specific folder 
 - Changing configuration file of Wazuh 
+
+# Setup and Configurations
+## Checking Machine network
+Run `ifconfig` on Ubuntu terminal
+
+![Ubuntu_IP](src/Ubuntu.png)
+
+Run `ipconfig` on Windows 10 command prompt
+
+![WIN](src/windows.png)
+
+Subnet/netmask for both machines is `255.255.255.0` hence they are in the same network.  
+
+## Installing Wazuh
+1. Install appropriate packages on ubuntu (if you havent)
+```bash
+sudo apt update
+sudo apt install -y gnupg
+```
+
+2. Installing GPG Key
+```bash
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh-archive-keyring.gpg
+```
+
+3. Installing Wazuh Manager
+```bash
+curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh && sudo bash ./wazuh-install.sh -a -i
+```
+Make sure `4.14` is set to latest version in my case it was 4.14.
+
+Below is the finished installation image containing username and password for wazuh dashboard login.
+![finish](src/finish.png)
+
+### Resizing VM
+One issue I ran into when installing wazuh manager is that my VM did not have enough space. The first thing I did was to resize the VM. You can do this by:
+1. Shut down Ubuntu 
+2. Go to VM on vmware
+3. Go to Hard disk 
+4. Expand disk capacity on the right 
+5. change to 60 gb
+
+![size](src/size.png)
+
+I noticed that the current size remained 15.7GB which was strange. Did some research and release my OS was only using orginal partition size and I need to resize it in the OS itself. I started by checking size on using `lsblk` which list all block device on ubunutu. 
+
+![lsblk](src/lsblk.png)
+
+We can see that the VM has been resize but not the partition(sda2). Next I resized `sda2` using following commands.
+```bash
+sudo growpart /dev/sda 2
+sudo resize2fs /dev/sda2
+```
+
+![check](src/check.png)
+
+
