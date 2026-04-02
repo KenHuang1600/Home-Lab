@@ -18,6 +18,10 @@ Run `ipconfig` on Windows 10 command prompt
 
 ![WIN](src/windows.png)
 
+Run `ifconfig` on Kali Linux terminal
+
+![kali](src/kali.png)
+
 Subnet/netmask for both machines is `255.255.255.0` and the address starts with `192.168.1` hence they are in the same network/subnet.  
 
 ## Installing Wazuh
