@@ -1,7 +1,13 @@
 # RDP Bruteforce Attack
 This section aims to replicate the basics of detecting RDP bruteforce. Remote Desktop Protocol(RDP) allows users from another computer to control target machine. Attackers can use RDP to access a particular device/machine on the network and one method is by bruteforcing the credentials of RDP connection. This documentation will explain how to setup the lab for RDP and setup a detection method against it.
 
-Tools used:
+## Learning Outcome
+- Understanding RDP configuration on Windows
+- Writing Wazuh rules
+- Configure Windows to send logs to Wazuh Manager
+- Bruteforcing with hydra
+
+## Tools used
 - RDP
 - Kali Linux - Attacker
 - Hydra - Bruteforce tool
@@ -52,7 +58,7 @@ Result image:
 You can also see it from Wazuh:
 ![connect](src/connect.png)
 
-**Before we move we need to make sure windows machine is sending login logs to Wazuh manager(Ubuntu):**
+**Before we move on we need to make sure windows machine is sending login logs to Wazuh manager(Ubuntu):**
 Open `Local Security Policy` → `Security Settings` → `Local Policies` → `Audit Policy` → `Audit Logon Events` → `Success` and `Failure` checked.
 
 Now our Windows machine is ready for attack.

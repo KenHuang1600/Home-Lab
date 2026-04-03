@@ -110,6 +110,10 @@ Activity on new directory can be viewed on wazuh dashboard via `WINDOWS-AGENT` >
 
 # Upcoming work
 The future of this project will involve simulating attacks and detecting them with wazuh.
-- RDP Brute force detection
-- Adding a Ubuntu agent
-- Create web server
+- [ ] Adding an Ubuntu agent
+- [ ] Create web server
+- [ ] Add metasploit 
+
+# Releases
+- Added Kali Linux to the network
+- RDP Brute force documentation is out
