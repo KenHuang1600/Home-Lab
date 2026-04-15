@@ -76,6 +76,11 @@ sudo resize2fs /dev/sda2
 3. Login with provide credentials
 4. ![dashbaord](src/dashboard.png)
 
+### Install Wazuh Agent
+1. Download windows installer from Wazuh Website
+2. Open installer accept agreement then finish
+3. Open Wazuh agent can be done via search bar
+
 The ip entered should be the ubuntu machines IP address. To get the authentication key we will need to open the machine with Wazuh Manager.
 
 1. Open Terminal on Ubuntu
@@ -83,17 +88,15 @@ The ip entered should be the ubuntu machines IP address. To get the authenticati
 ```bash
 sudo /var/ossec/bin/manage_agents
 ```
-4. On menu enter `A` to choose adding agent
+1. On menu enter `A` to choose adding agent
+2. Enter any name for agent name and the windows machines IP address
+3. To extract a key enter `E` on menu
+4. Enter agent ID number
+5. Go back to Windows Machine to paste authentication key
+6. Save and restart agent by clicking on manage > restart
 
-### Install Wazuh Agent
-1. Download windows installer from Wazuh Website
-2. Open installer accept agreement then finish
-3. Open Wazuh agent can be done via search bar
-4. Enter any name for agent name and the windows machines IP address
-5. To extract a key enter `E` on menu
-6. Enter agent ID number
-7. Go back to Windows Machine to paste authentication key
-8. Save and restart agent by clicking on manage > restart
+If the setup is correct you should be able to see your agent on the dashboard and clicking on active shows this.
+![alt text](src/agent.png)
 
 # File Integrity Monitoring Setup
 File Integrity Monitoring aims to montior a specific directory for any file changes(edit, delete, add). First we need to make a directory to monitor and add it to our wazuh config file `ossec`:
