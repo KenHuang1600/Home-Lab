@@ -115,3 +115,4 @@ The future of this project will involve simulating attacks and detecting them wi
 # Releases
 - Added Kali Linux to the network
 - RDP Brute force documentation is out
+- DVWA installed and being monitored
