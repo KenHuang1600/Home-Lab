@@ -74,9 +74,10 @@ sudo resize2fs /dev/sda2
 1. Use `ifconfig` or any other network command to find your device IP address 
 2. Enter `https://<ipaddress>:443` where `<ipaddress>` is machine IP address
 3. Login with provide credentials
-4. ![dashbaord](src/dashboard.png)
 
-### Install Wazuh Agent
+![dashbaord](src/dashboard.png)
+
+### Install and Onboard Wazuh Agent
 1. Download windows installer from Wazuh Website
 2. Open installer accept agreement then finish
 3. Open Wazuh agent can be done via search bar
